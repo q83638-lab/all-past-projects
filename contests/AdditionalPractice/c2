@@ -1,0 +1,19 @@
+input=open('input.txt', 'r') 
+n = int(input.readline())
+p = [int(x) for x in input.readline().split(' ')]
+t = [int(x) for x in input.readline().split(' ')]
+answer = 0
+    for pi in range(n):
+        for ti in range(n):
+            if pi == ti:
+                continue
+            local = p[pi] + t[ti]
+            for i in range(n):
+                if i != pi and i != ti:
+                    local += max(p[i], t[i])
+            answer = max(answer, local)
+            output=open('output.txt', 'w')
+output.write(str(answer))
+output.write('\n')
+
+
